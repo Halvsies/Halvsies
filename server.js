@@ -41,7 +41,7 @@ app.get('/', function(req, res){
 
 app.get('/api/saved', function(req, res) {
 
-  Article.find({})
+  Listing.find({})
     .exec(function(err, doc){
 
       if(err){
@@ -55,13 +55,13 @@ app.get('/api/saved', function(req, res) {
 
 app.post('/api/saved', function(req, res){
 
-  var newArticle = new Article({
+  var newListing = new Listing({
     title: req.body.title,
     date: req.body.date,
     url: req.body.url
   });
 
-  newArticle.save(function(err, doc){
+  newListing.save(function(err, doc){
     if(err){
       console.log(err);
       res.send(err);
@@ -74,7 +74,7 @@ app.post('/api/saved', function(req, res){
 
 app.delete('/api/saved/:id', function(req, res){
 
-  Article.find({'_id': req.params.id}).remove()
+  Listing.find({'_id': req.params.id}).remove()
     .exec(function(err, doc) {
       res.send(doc);
   });
