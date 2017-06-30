@@ -19,8 +19,7 @@ var ListingSchema = new Schema({
     type: Boolean,
     default: false
   },
-  // This only saves one note's ObjectId, ref refers to the Note model
-  lister: [{
+  matched: [{
     type: Schema.Types.ObjectId,
     ref: "User"
   }]
