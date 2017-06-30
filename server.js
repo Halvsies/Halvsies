@@ -39,7 +39,7 @@ app.get('/', function(req, res){
   res.sendFile('./public/index.html');
 })
 
-app.get('/api/saved', function(req, res) {
+app.get('/api/mylist', function(req, res) {
 
   Listing.find({})
     .exec(function(err, doc){
@@ -53,12 +53,12 @@ app.get('/api/saved', function(req, res) {
     })
 });
 
-app.post('/api/saved', function(req, res){
+app.post('/api/mylist', function(req, res){
 
   var newListing = new Listing({
-    title: req.body.title,
-    date: req.body.date,
-    url: req.body.url
+    item: req.body.bulk_qty,
+    bulk_qty: req.body.bulk_qty,
+    split_qty: req.body.split_qty
   });
 
   newListing.save(function(err, doc){
@@ -72,7 +72,7 @@ app.post('/api/saved', function(req, res){
 
 });
 
-app.delete('/api/saved/:id', function(req, res){
+app.delete('/api/mylist/:id', function(req, res){
 
   Listing.find({'_id': req.params.id}).remove()
     .exec(function(err, doc) {
