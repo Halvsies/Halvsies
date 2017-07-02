@@ -1,6 +1,15 @@
+// Dependencies
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Link = require("react-router").Link;
-var reactRoutes = require("./Components/reactRoutes.js")
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
-ReactDOM.render(reactRoutes ,document.getElementById('app'));
+// Import Components Here
+import Main from "./Components/Main.js"
+
+const app = document.getElementById('app')
+
+ReactDOM.render(<Main /> ,app)
