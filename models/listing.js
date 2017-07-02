@@ -13,17 +13,22 @@ var ListingSchema = new Schema({
   },
   split_qty: {
     type: Number,
-    required: "Bulk Qty Required"
+    required: "Split Qty Required"
   },
-  reserved:{
+  reserved: {
     type: Boolean,
     default: false
   },
-  // This only saves one note's ObjectId, ref refers to the Note model
-  lister: [{
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  }]
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  matched: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }
+  ]
 });
 
 var Listing = mongoose.model('Listing', ListingSchema);
