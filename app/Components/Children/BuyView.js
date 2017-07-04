@@ -1,4 +1,3 @@
-// var React = require('react');
 var axios = require('axios');
 
 import React, { Component } from 'react';
@@ -6,11 +5,11 @@ import React, { Component } from 'react';
 
 // var helpers = require('./utils/helpers.js');
 
-class Sell extends Component {
+class Buy extends Component {
 
   render(){
-  	return(<h1> Sell Page </h1>);
+  	return(<h1> Buy Page </h1>);
   }
 }
 
-export default Sell
+export default Buy

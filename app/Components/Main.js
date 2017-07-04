@@ -1,4 +1,3 @@
-var React = require('react');
 var axios = require('axios');
 
 import {
@@ -7,7 +6,12 @@ import {
   Link
 } from 'react-router-dom'
 
-var helpers = require('./utils/helpers.js');
+import React, { Component } from 'react';
+
+import Sell from './Children/SellView.js'
+import Buy from './Children/BuyView.js'
+
+// var helpers = require('./utils/helpers.js');
 
 class Main extends React.Component {
   render() {
@@ -16,14 +20,16 @@ class Main extends React.Component {
         <div>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
+            <li><Link to="/sell">Sell</Link></li>
+            <li><Link to="/buy">Buy</Link></li>
             <li><Link to="/topics">Topics</Link></li>
           </ul>
 
           <hr/>
 
           <Route exact path="/" component={Home}/>
-          <Route path="/about" component={About}/>
+          <Route path="/buy" component={Buy}/>
+          <Route path="/sell" component={Sell}/>
           <Route path="/topics" component={Topics}/>
         </div>
       </Router>
@@ -36,11 +42,11 @@ const Home = () => (
   </div>
 )
 
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-)
+// const Sell = () => (
+//   <div>
+//     <h2>About</h2>
+//   </div>
+// )
 
 const Topics = ({ match }) => (
   <div>
@@ -59,6 +65,11 @@ const Topics = ({ match }) => (
       <li>
         <Link to={`${match.url}/props-v-state`}>
           Props v. State
+        </Link>
+      </li>
+        <li>
+        <Link to={`${match.url}/new-topic`}>
+          Brand new topic
         </Link>
       </li>
     </ul>
