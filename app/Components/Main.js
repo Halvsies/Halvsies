@@ -1,45 +1,79 @@
 var React = require('react');
 var axios = require('axios');
-var Router = require('react-router');
-var Navbar = require('react-bootstrap').Navbar;
-var FormGroup = require('react-bootstrap').FormGroup;
-var FormControl = require('react-bootstrap').FormControl;
-var Button = require('react-bootstrap').Button;
-var Nav = require('react-bootstrap').Nav;
-var NavItem = require('react-bootstrap').NavItem;
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
 var helpers = require('./utils/helpers.js');
 
-var Main = React.createClass({
+class Main extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/topics">Topics</Link></li>
+          </ul>
 
-  render: function(){
+          <hr/>
 
-    return(
-
-      <Navbar>
-       <Navbar.Header>
-         <Navbar.Brand>
-           <a href="#">Halvsies</a>
-         </Navbar.Brand>
-         <Navbar.Form pullLeft>
-           <FormGroup>
-             <FormControl type="text" placeholder="Search" />
-           </FormGroup>
-           {' '}
-           <Button type="submit"><i className="fa fa-search" aria-hidden="true"></i></Button>
-         </Navbar.Form>
-         <Navbar.Toggle />
-       </Navbar.Header>
-       <Navbar.Collapse>
-       <Nav pullRight>
-        <NavItem eventKey={1} href="#">Buy</NavItem>
-        <NavItem eventKey={2} href="#">Sell</NavItem>
-       </Nav>
-       </Navbar.Collapse>
-      </Navbar>
-
-    )
+          <Route exact path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route path="/topics" component={Topics}/>
+        </div>
+      </Router>
+    );
   }
-});
+}
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+)
+
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
+)
+
+const Topics = ({ match }) => (
+  <div>
+    <h2>Topics</h2>
+    <ul>
+      <li>
+        <Link to={`${match.url}/rendering`}>
+          Rendering with React
+        </Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/components`}>
+          Components
+        </Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/props-v-state`}>
+          Props v. State
+        </Link>
+      </li>
+    </ul>
+
+    <Route path={`${match.url}/:topicId`} component={Topic}/>
+    <Route exact path={match.url} render={() => (
+      <h3>Please select a topic.</h3>
+    )}/>
+  </div>
+)
+
+const Topic = ({ match }) => (
+  <div>
+    <h3>{match.params.topicId}</h3>
+  </div>
+)
 
 module.exports = Main;
