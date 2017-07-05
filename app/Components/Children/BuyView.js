@@ -2,8 +2,7 @@ var axios = require('axios');
 
 import React, { Component } from 'react';
 
-
-// var helpers = require('./utils/helpers.js');
+// import helpers from './utils/helpers.js';
 
 class Buy extends Component {
 

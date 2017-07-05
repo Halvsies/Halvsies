@@ -8,9 +8,10 @@ import {
 
 import React, { Component } from 'react';
 
-import Sell from './Children/SellView.js'
-import Buy from './Children/BuyView.js'
+import Sell from './Children/SellView.js';
+import Buy from './Children/BuyView.js';
 
+// import { helpers } from './utils/helpers.js';
 // var helpers = require('./utils/helpers.js');
 
 class Main extends React.Component {
@@ -41,12 +42,6 @@ const Home = () => (
     <h2>Home</h2>
   </div>
 )
-
-// const Sell = () => (
-//   <div>
-//     <h2>About</h2>
-//   </div>
-// )
 
 const Topics = ({ match }) => (
   <div>
