@@ -6,7 +6,8 @@ import {
   Link
 } from 'react-router-dom'
 
-var helpers = require('./utils/helpers.js');
+var helpers = require('./utils/helpers');
+var SellView = require('./Children/SellView');
 
 class Main extends React.Component {
   render() {
