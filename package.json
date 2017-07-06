@@ -33,11 +33,7 @@
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
-<<<<<<< HEAD
-    "webpack": "^1.15.0"
-=======
     "nodemon": "^1.11.0",
     "webpack": "^1.13.1"
->>>>>>> 0c6281af327e86874e6c79dc5fd87091e09a7696
   }
 }

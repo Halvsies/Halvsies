@@ -6,19 +6,12 @@ import {
   Link
 } from 'react-router-dom'
 
-<<<<<<< HEAD
-// import React, { Component } from 'react';
 import React from 'react';
 
-import Sell from './Children/SellView.js';
 import Buy from './Children/BuyView.js';
 
-// import { helpers } from './utils/helpers.js';
-// var helpers = require('./utils/helpers.js');
-=======
 var helpers = require('./utils/helpers');
 var SellView = require('./Children/SellView');
->>>>>>> 0c6281af327e86874e6c79dc5fd87091e09a7696
 
 class Main extends React.Component {
   render() {
@@ -27,27 +20,15 @@ class Main extends React.Component {
         <div>
           <ul>
             <li><Link to="/">Home</Link></li>
-<<<<<<< HEAD
-            <li><Link to="/sell">Sell</Link></li>
-            <li><Link to="/buy">Buy</Link></li>
-            <li><Link to="/topics">Topics</Link></li>
-=======
             <li><Link to="/about">About</Link></li>
             <li><Link to="/SellView">SellView</Link></li>
->>>>>>> 0c6281af327e86874e6c79dc5fd87091e09a7696
           </ul>
 
           <hr/>
 
           <Route exact path="/" component={Home}/>
-<<<<<<< HEAD
-          <Route path="/buy" component={Buy}/>
-          <Route path="/sell" component={Sell}/>
-          <Route path="/topics" component={Topics}/>
-=======
           <Route path="/about" component={About}/>
           <Route path="/SellView" component={SellView}/>
->>>>>>> 0c6281af327e86874e6c79dc5fd87091e09a7696
         </div>
       </Router>
     );
