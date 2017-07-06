@@ -1,6 +1,6 @@
 var axios = require('axios');
 
-import React, { Component } from 'react';
+import React from 'react';
 
 export const helpers=()=>{
     console.log("helpers");

@@ -6,7 +6,8 @@ import {
   Link
 } from 'react-router-dom'
 
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React from 'react';
 
 import Sell from './Children/SellView.js';
 import Buy from './Children/BuyView.js';
