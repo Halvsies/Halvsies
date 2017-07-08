@@ -7,9 +7,9 @@ class AddForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
         <input type="text" ref="listName" placeholder="Name of Item"/>
-        <input type="text" ref="listQty" placeholder="Quantity to buy"/>
-        <input type="text" ref="listSqty" placeholder="Quantity to split"/>
-        <input type="text" ref="listDate" placeholder="Grocery Date"/>
+        <input type="number" ref="listQty" placeholder="Quantity to buy"/>
+        <input type="number" ref="listSqty" placeholder="Quantity to split"/>
+        <input type="date" ref="listDate" placeholder="Grocery Date"/>
         <input type="submit" value="Add"/>
       </form>
     )
@@ -18,11 +18,10 @@ class AddForm extends React.Component {
     // when form is submitted, send input value to parent component
     e.preventDefault()
     let item = {
-      name: this.refs.listName.value,
-      qty: this.refs.listQty.value,
-      sQty: this.refs.listSqty.value,
-      buyDate: this.refs.listDate.value,
-      reserved: false
+      item: this.refs.listName.value,
+      bulk_qty: this.refs.listQty.value,
+      split_qty: this.refs.listSqty.value,
+      buy_date: this.refs.listDate.value
     };
 
     // only send if value is not empty!
@@ -32,6 +31,11 @@ class AddForm extends React.Component {
     this.refs.listQty.value = '';
     this.refs.listSqty.value = '';
     this.refs.listDate.value = '';
+
+    // add item to this users's list
+    axios.post('/api/mylist', {item}).then(function(result) {
+      console.log(result);
+    });
 
   }
 }
