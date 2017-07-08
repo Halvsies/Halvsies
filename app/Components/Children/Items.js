@@ -16,7 +16,7 @@ class Items extends React.Component {
         <span>| Qty: {item.bulk_qty} </span>
         <span>| Split Qty: {item.split_qty} </span>
         <span>| Buy Date: {item.buy_date} </span>
-        <span>| Reserved: {item.reserved.toString()} </span>
+        <span>| Reserved: {item.reserved} </span>
       </li>
     })
     return (

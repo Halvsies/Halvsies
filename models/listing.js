@@ -16,8 +16,8 @@ var ListingSchema = new Schema({
     required: "Split Qty Required"
   },
   reserved: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: "false"
   },
   buy_date: {
     type: String,
