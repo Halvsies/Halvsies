@@ -19,9 +19,12 @@ var ListingSchema = new Schema({
     type: Boolean,
     default: false
   },
-  date: {
-    type: Date,
-    default: Date.now
+  buy_date: {
+    type: String,
+    required: "Buy Date Required"
+  },
+  seller:{
+    type:String
   },
   matched: [
     {

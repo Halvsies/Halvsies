@@ -54,11 +54,12 @@ app.get('/api/mylist', function(req, res) {
 });
 
 app.post('/api/mylist', function(req, res){
-
+  console.log(req.body.item);
   var newListing = new Listing({
-    item: req.body.bulk_qty,
-    bulk_qty: req.body.bulk_qty,
-    split_qty: req.body.split_qty
+    item: req.body.item.item,
+    bulk_qty: req.body.item.bulk_qty,
+    split_qty: req.body.item.split_qty,
+    buy_date: req.body.item.buy_date
   });
 
   newListing.save(function(err, doc){

@@ -25,7 +25,10 @@ class Main extends React.Component {
 
           <hr/>
 
-          <Route exact path="/" component={Home}/>
+
+          {/* <Route exact path="/" component={Home}/> */}
+          <Route exact path="/" component={SellView}/>
+          <Route path="/about" component={About}/>
           <Route path="/SellView" component={SellView}/>
         </div>
       </Router>

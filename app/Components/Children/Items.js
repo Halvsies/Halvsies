@@ -3,10 +3,21 @@ import axios from "axios";
 
 /* ===== items list ===== */
 class Items extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleRemove = this.handleRemove.bind(this);
+
+  }
   render() {
     // grab items array from state, map each item in `li`
     let items = this.props.items.map((item, key) => {
-      return <li key={key} onClick={this.handleRemove.bind(this)}>Item: {item.name} | Qty: {item.qty} | Split Qty: {item.sQty} | Buy Date: {item.buyDate} </li>
+      return <li key={key} onClick={this.handleRemove}>
+        <span>Item: {item.item} </span>
+        <span>| Qty: {item.bulk_qty} </span>
+        <span>| Split Qty: {item.split_qty} </span>
+        <span>| Buy Date: {item.buy_date} </span>
+        <span>| Reserved: {item.reserved.toString()} </span>
+      </li>
     })
     return (
       <ul>
@@ -15,7 +26,8 @@ class Items extends React.Component {
     )
   }
   handleRemove(item) {
-    this.props.removeItem(item.currentTarget.innerText) // pass value of item to delete to parent component
+
+    this.props.removeItem();
   }
 }
 
