@@ -23,6 +23,7 @@ class SellView extends React.Component {
   addItem(item) {
     // getting input value from child component --> adding it to state items array
     this.setState({items: this.state.items.concat(item)})
+
   }
   removeItem(value) {}
   componentWillMount() {
@@ -33,14 +34,19 @@ class SellView extends React.Component {
       this.setState({items: response.data});
     });
 
-
   }
-  componentDidUpdate() {
-    // on each update, sync our state with db
-    axios.get("/api/mylist").then(response => {
+  componentDidUpdate(prevProps, prevState) {
+    //on each update, sync our state with db
+    // need to fix this to not constantly call db
 
-      this.setState({items: response.data});
-    });
+
+    if (prevState.items != this.state.items) {
+      console.log("UPDATED");
+      axios.get("/api/mylist").then(response => {
+        this.setState({items: response.data});
+      });
+    }
+
   }
 }
 

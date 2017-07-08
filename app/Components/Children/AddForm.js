@@ -31,10 +31,11 @@ class AddForm extends React.Component {
     this.refs.listQty.value = '';
     this.refs.listSqty.value = '';
     this.refs.listDate.value = '';
-
     // add item to this users's list
     axios.post('/api/mylist', {item}).then(function(result) {
       console.log(result);
+
+
     });
 
   }
