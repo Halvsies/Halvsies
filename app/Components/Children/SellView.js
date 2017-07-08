@@ -35,16 +35,12 @@ class SellView extends React.Component {
     });
 
   }
-  componentDidUpdate(prevProps, prevState) {
+  componentWillReceiveProps(nextProps, nextState) {
     //on each update, sync our state with db
-    // need to fix this to not constantly call db
 
+    if (this.state.items != nextState.items) {
 
-    if (prevState.items != this.state.items) {
-      console.log("UPDATED");
-      axios.get("/api/mylist").then(response => {
-        this.setState({items: response.data});
-      });
+      this.setState({items: nextState.items});
     }
 
   }
