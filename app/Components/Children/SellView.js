@@ -34,7 +34,7 @@ class SellView extends React.Component {
                 <h3 className="panel-title text-center">Listed Halvsies</h3>
 
               </div>
-              <div className="panel-body panel-body-padding">
+              <div className="panel-body">
                 <Items items={this.state.items} removeItem={this.removeItem.bind(this)}/>
               </div>
             </div>
