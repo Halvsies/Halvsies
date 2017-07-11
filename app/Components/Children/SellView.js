@@ -29,7 +29,7 @@ class SellView extends React.Component {
             </div>
           </div>
           <div className="col-md-8">
-            <div className="panel panel-success">
+            <div className="panel panel-primary">
               <div className="panel-heading">
                 <h3 className="panel-title text-center">Listed Halvsies</h3>
 
@@ -50,9 +50,18 @@ class SellView extends React.Component {
     this.setState({items: this.state.items.concat(item)})
 
   }
-  removeItem(value) {}
+  removeItem(id) {
+    // remove item then get the latest state
+    axios.delete("/api/mylist/" + id).then(response => {
+      console.log(response);
+      axios.get("/api/mylist").then(response => {
+
+        this.setState({items: response.data});
+      });
+    });
+  }
   componentWillMount() {
-    // load items array from localStorage, set in state
+    // load items array from db, set in state
 
     axios.get("/api/mylist").then(response => {
 
