@@ -14,10 +14,35 @@ class SellView extends React.Component {
   render() {
     // outputting child components while passing state + callback functions
     return (
-      <div>
-        <AddForm addItem={this.addItem.bind(this)}/>
-        <Items items={this.state.items} removeItem={this.removeItem.bind(this)}/>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4">
+            <div className="panel panel-primary">
+              <div className="panel-heading">
+                <h3 className="panel-title text-center">Halvsies my Groceries</h3>
+
+              </div>
+              <div className="panel-body panel-body-padding">
+                <AddForm addItem={this.addItem.bind(this)}/>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-8">
+            <div className="panel panel-success">
+              <div className="panel-heading">
+                <h3 className="panel-title text-center">Listed Halvsies</h3>
+
+              </div>
+              <div className="panel-body panel-body-padding">
+                <Items items={this.state.items} removeItem={this.removeItem.bind(this)}/>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
+
     )
   }
   addItem(item) {
