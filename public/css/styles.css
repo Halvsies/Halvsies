@@ -1,0 +1,12 @@
+.panel-body-padding {
+  padding: 20px 30px;
+}
+
+td {
+  text-transform: capitalize;
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}

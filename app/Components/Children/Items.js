@@ -3,19 +3,48 @@ import axios from "axios";
 
 /* ===== items list ===== */
 class Items extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleRemove = this.handleRemove.bind(this);
+
+  }
   render() {
     // grab items array from state, map each item in `li`
     let items = this.props.items.map((item, key) => {
-      return <li key={key} onClick={this.handleRemove.bind(this)}>Item: {item.name} | Qty: {item.qty} | Split Qty: {item.sQty} | Buy Date: {item.buyDate} </li>
+
+      return <tr key={key} onClick={this.handleRemove}>
+        <td>{item.item}
+        </td>
+        <td>{item.bulk_qty}
+        </td>
+        <td>{item.split_qty}
+        </td>
+        <td>{item.buy_date}
+        </td>
+        <td>{item.reserved}
+        </td>
+      </tr>
     })
     return (
-      <ul>
+      <table id="listedItems" className="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Buy Quantity</th>
+            <th>Halvsies</th>
+            <th>Buy Date</th>
+            <th>Reserved</th>
+          </tr>
+        </thead>
+        <tbody>
         {items}
-      </ul>
+      </tbody>
+      </table>
     )
   }
   handleRemove(item) {
-    this.props.removeItem(item.currentTarget.innerText) // pass value of item to delete to parent component
+
+    this.props.removeItem();
   }
 }
 

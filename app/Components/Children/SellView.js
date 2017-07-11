@@ -3,56 +3,72 @@ import axios from "axios";
 import AddForm from "./AddForm";
 import Items from "./Items";
 
-
-
-
 /* ===== parent component ===== */
 class SellView extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { items: [] }
+    this.state = {
+      items: []
+    }
   }
   render() {
     // outputting child components while passing state + callback functions
     return (
-      <div>
-        <AddForm addItem={this.addItem.bind(this)} />
-        <Items items={this.state.items} removeItem={this.removeItem.bind(this)} />
+
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4">
+            <div className="panel panel-primary">
+              <div className="panel-heading">
+                <h3 className="panel-title text-center">Halvsies my Groceries</h3>
+
+              </div>
+              <div className="panel-body panel-body-padding">
+                <AddForm addItem={this.addItem.bind(this)}/>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-8">
+            <div className="panel panel-success">
+              <div className="panel-heading">
+                <h3 className="panel-title text-center">Listed Halvsies</h3>
+
+              </div>
+              <div className="panel-body">
+                <Items items={this.state.items} removeItem={this.removeItem.bind(this)}/>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
+
     )
   }
   addItem(item) {
     // getting input value from child component --> adding it to state items array
-    this.setState({
-      items: this.state.items.concat(item)
-    })
+    this.setState({items: this.state.items.concat(item)})
+
   }
-  removeItem(value) {
-    // filter method --> taking out item that matches value of clicked item
-    let filtered = this.state.items.filter((item) =>{
-      return item !== value
-    })
-    // setting the filtered array as new state --> all items minus clicked item
-    this.setState({
-      items: filtered
-    })
-  }
+  removeItem(value) {}
   componentWillMount() {
     // load items array from localStorage, set in state
-    let itemsList = localStorage.getItem('items')
-    if (itemsList) {
-      this.setState({
-        items: JSON.parse(localStorage.getItem('items'))
-      })
-    }
+
+    axios.get("/api/mylist").then(response => {
+
+      this.setState({items: response.data});
+    });
+
   }
-  componentDidUpdate() {
-    // on each update, sync our state with localStorage
-    localStorage.setItem('items', JSON.stringify(this.state.items))
+  componentWillReceiveProps(nextProps, nextState) {
+    //on each update, sync our state with db
+
+    if (this.state.items != nextState.items) {
+
+      this.setState({items: nextState.items});
+    }
+
   }
 }
-
-
-
 
 module.exports = SellView;
