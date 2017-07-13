@@ -22,7 +22,7 @@ class Results extends React.Component {
         <td>{item.buy_date}
         </td>
 
-        <td ><button onClick={this.handleReserve} id={item._id} type="button" className="btn btn-success">Reserve</button>
+        <td><button onClick={this.handleReserve} id={item._id} type="button" className="btn btn-success">Reserve</button>
         </td>
       </tr>
     });
@@ -43,7 +43,7 @@ class Results extends React.Component {
     )
   }
   handleReserve(item) {
-    console.log(item.currentTarget.getAttribute('id'));
+
     this.props.reserveItem(item.currentTarget.getAttribute('id'));
 
   }

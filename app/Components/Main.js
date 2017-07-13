@@ -43,7 +43,7 @@ class Main extends React.Component {
 
           {/* <Route exact path="/" component={Home}/> */}
 
-          <Route exact path="/" component={SellList}/>
+          <Route exact path="/" component={SellView}/>
           <Route path="/find" component={SellList}/>
           <Route path="/listings" component={SellView}/>
         </div>

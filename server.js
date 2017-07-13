@@ -119,6 +119,28 @@ app.post("/reserve/:id", function(req, res) {
 
 });
 
+app.post("/unreserve/:id", function(req, res) {
+
+  Listing.update({
+    "_id": req.params.id
+  }, {
+
+    $set: {
+      "reserved": "false"
+    }
+  }, function(error, edited) {
+
+    if (error) {
+
+      res.send(error);
+    } else {
+
+      res.send(edited);
+    }
+  });
+
+});
+
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
 });

@@ -55,18 +55,23 @@ class AddForm extends React.Component {
     };
 
     // only send if value is not empty!
-    item && this.props.addItem(item);
-    // reset input field to blank
-    this.refs.listName.value = '';
-    this.refs.listQty.value = '';
-    this.refs.listSqty.value = '';
-    this.refs.listDate.value = '';
-    // add item to this users's list
-    axios.post('/api/mylist', {item}).then(function(result) {
-      console.log(result);
+    if(item.item != "" && item.bulk_qty != "" && item.split_qty != "" && item.buy_date != "" && item.reserved != "" ){
+      this.props.addItem(item);
+
+      // reset input field to blank
+      this.refs.listName.value = '';
+      this.refs.listQty.value = '';
+      this.refs.listSqty.value = '';
+      this.refs.listDate.value = '';
+      // add item to this users's list
+      axios.post('/api/mylist', {item}).then(function(result) {
+        console.log(result);
+
+      });
+    }
 
 
-    });
+
 
   }
 }

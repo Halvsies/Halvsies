@@ -53,7 +53,7 @@ class SellView extends React.Component {
   removeItem(id) {
     // remove item then get the latest state
     axios.delete("/api/mylist/" + id).then(response => {
-      console.log(response);
+    
       axios.get("/api/mylist").then(response => {
 
         this.setState({items: response.data});

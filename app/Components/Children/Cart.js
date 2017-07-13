@@ -5,6 +5,7 @@ import axios from "axios";
 class Cart extends React.Component {
   constructor(props) {
     super(props);
+    this.handleUnreserve = this.handleUnreserve.bind(this);
 
   }
   render() {
@@ -18,7 +19,9 @@ class Cart extends React.Component {
         </td>
         <td>{cart.buy_date}
         </td>
-
+        <td>
+          <button onClick={this.handleUnreserve} id={cart._id} type="button" className="btn btn-danger">Cancel</button>
+        </td>
       </tr>
     });
     return (
@@ -36,7 +39,10 @@ class Cart extends React.Component {
       </table>
     )
   }
-
+  handleUnreserve(item) {
+    
+    this.props.unreserveItem(item.currentTarget.getAttribute('id'));
+  }
 }
 
 module.exports = Cart;

@@ -9,7 +9,7 @@ class SellList extends React.Component {
     super(props)
     this.state = {
       items: [],
-      cart:[]
+      cart: []
     }
   }
   render() {
@@ -18,18 +18,18 @@ class SellList extends React.Component {
 
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-5">
             <div className="panel panel-primary">
               <div className="panel-heading">
                 <h3 className="panel-title text-center">Reserved Items</h3>
 
               </div>
               <div className="panel-body panel-body-padding">
-                <Cart items={this.state.items} cart={this.state.cart}/>
+                <Cart items={this.state.items} cart={this.state.cart} unreserveItem={this.unreserveItem.bind(this)}/>
               </div>
             </div>
           </div>
-          <div className="col-md-8">
+          <div className="col-md-7">
             <div className="panel panel-primary">
               <div className="panel-heading">
                 <h3 className="panel-title text-center">Available Halvsies</h3>
@@ -48,9 +48,25 @@ class SellList extends React.Component {
   }
 
   reserveItem(id) {
-    // remove item then get the latest state
+
     axios.post("/reserve/" + id).then(response => {
-      console.log(response);
+    
+      axios.get("/api/available").then(response => {
+
+        this.setState({items: response.data});
+        axios.get("/api/unavailable").then(response => {
+
+          this.setState({cart: response.data});
+
+        });
+      });
+    });
+
+  }
+  unreserveItem(id) {
+
+    axios.post("/unreserve/" + id).then(response => {
+
       axios.get("/api/available").then(response => {
 
         this.setState({items: response.data});
