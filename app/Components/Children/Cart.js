@@ -1,21 +1,42 @@
-var React = require('react');
-var axios = require('axios');
+import React from "react";
+import axios from "axios";
 
+/* ===== carts list ===== */
+class Cart extends React.Component {
+  constructor(props) {
+    super(props);
 
-var helpers = require('./utils/helpers.js');
+  }
+  render() {
+    // grab carts array from state, map each cart in `li`
+    let cart = this.props.cart.map((cart, key) => {
 
-var Main = React.createClass({
+      return <tr key={key} >
+        <td>{cart.item}
+        </td>
+        <td>{cart.split_qty}
+        </td>
+        <td>{cart.buy_date}
+        </td>
 
-  render: function() {
+      </tr>
+    });
     return (
-
-      <div className="container">
-
-      <h1> Cart </h1>
-
-      </div>
+      <table id="listedcarts" className="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Halvsies</th>
+            <th>Buy Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        {cart}
+      </tbody>
+      </table>
     )
   }
-});
+
+}
 
 module.exports = Cart;

@@ -22,6 +22,7 @@ class AddForm extends React.Component {
         <div className="form-group">
           <input type="submit" value="Add" className="btn btn-success btn-block"/>
         </div>
+
       </form>
 
     )
