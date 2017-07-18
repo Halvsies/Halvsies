@@ -5,14 +5,14 @@ import axios from "axios";
 class Items extends React.Component {
   constructor(props) {
     super(props);
-      this.handleRemove = this.handleRemove.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
 
   }
   render() {
     // grab items array from state, map each item in `li`
     let items = this.props.items.map((item, key) => {
 
-      return <tr key={key} >
+      return <tr key={key}>
         <td>{item.item}
         </td>
         <td>{item.bulk_qty}
@@ -23,7 +23,8 @@ class Items extends React.Component {
         </td>
         <td>{item.reserved}
         </td>
-        <td id={item._id} onClick={this.handleRemove}>X
+        <td>
+          <button onClick={this.handleRemove} id={item._id} type="button" className="btn btn-danger">Delete</button>
         </td>
       </tr>
     });
@@ -39,13 +40,13 @@ class Items extends React.Component {
           </tr>
         </thead>
         <tbody>
-        {items}
-      </tbody>
+          {items}
+        </tbody>
       </table>
     )
   }
   handleRemove(item) {
-    console.log(item.currentTarget.getAttribute('id'));
+  
     this.props.removeItem(item.currentTarget.getAttribute('id'));
 
   }
