@@ -7,7 +7,7 @@
     "dev": "webpack -d --watch",
     "prod": "webpack -p --history-api-fallback",
     "serve": "concurrently \"webpack -w\" \"nodemon server.js\"",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "start": "node server.js"
   },
   "author": "halvsies",
   "license": "ISC",
