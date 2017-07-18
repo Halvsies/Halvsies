@@ -73,6 +73,23 @@ app.post('/api/mylist', function(req, res){
 
 });
 
+// app.post('/api/mySearchlist', function(req, res){
+//   console.log(req.body.item);
+//   var newSearchListing = new SearchListing({
+//     searchItem: req.body.item.item
+//   });
+
+//   newSearchListing.save(function(err, doc){
+//     if(err){
+//       console.log(err);
+//       res.send(err);
+//     } else {
+//       res.json(doc);
+//     }
+//   });
+
+// });
+
 app.delete('/api/mylist/:id', function(req, res){
 
   Listing.find({'_id': req.params.id}).remove()

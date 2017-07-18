@@ -8,6 +8,7 @@ import {
 
 var helpers = require('./utils/helpers');
 var SellView = require('./Children/SellView');
+var Home = require('./Children/Home');
 
 class Main extends React.Component {
   render() {
@@ -24,18 +25,18 @@ class Main extends React.Component {
 
           {/* <Route exact path="/" component={Home}/> */}
           <Route exact path="/" component={SellView}/>
-          <Route path="/about" component={About}/>
+          <Route path="/about" component={Home}/>
           <Route path="/SellView" component={SellView}/>
         </div>
       </Router>
     );
   }
 }
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
+// const Home = () => (
+//   <div>
+//     <h2>Home</h2>
+//   </div>
+// )
 
 const About = () => (
   <div>

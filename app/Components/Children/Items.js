@@ -49,6 +49,9 @@ class Items extends React.Component {
     this.props.removeItem(item.currentTarget.getAttribute('id'));
 
   }
+  handleReserved(item) {
+    console.log(user);
+  }
 }
 
 module.exports = Items;
