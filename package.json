@@ -7,7 +7,6 @@
     "dev": "webpack -d --watch",
     "prod": "webpack -p --history-api-fallback",
     "serve": "concurrently \"webpack -w\" \"nodemon server.js\"",
-    "start": "webpack -w & node server",
     "build": "webpack"
   },
   "author": "halvsies",
