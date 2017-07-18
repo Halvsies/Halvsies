@@ -7,7 +7,10 @@
     "dev": "webpack -d --watch",
     "prod": "webpack -p --history-api-fallback",
     "serve": "concurrently \"webpack -w\" \"nodemon server.js\"",
-    "start": "node server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "author": "halvsies",
   "license": "ISC",
