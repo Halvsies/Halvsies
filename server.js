@@ -8,9 +8,6 @@ var Listing = require('./models/Listing.js');
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-app.listen(PORT, function() {
-  console.log("App listening on PORT: " + PORT);
-});
 // Run Morgan for Logging
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -142,4 +139,8 @@ app.post("/unreserve/:id", function(req, res) {
     }
   });
 
+});
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
 });

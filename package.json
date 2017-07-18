@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "webpack -d --watch",
     "prod": "webpack -p --history-api-fallback",
-    "serve": "concurrently \"webpack -w\" \"nodemon server.js\"",
-    "start": "node server.js"
+    "start": "concurrently \"webpack -w\" \"nodemon server.js\""
   },
   "author": "halvsies",
   "license": "ISC",
