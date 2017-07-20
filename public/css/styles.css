@@ -26,6 +26,12 @@ html #footer .footer-block {
   margin: 20px 0;
 }
 
+@media screen and (max-width:500px) {
+  #footer {
+    display: none;
+  }
+}
+
 .panel-body-padding {
   padding: 20px 30px;
 }
