@@ -1,100 +1,62 @@
 var React = require('react');
 var axios = require('axios');
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 var helpers = require('./utils/helpers');
 var SellView = require('./Children/SellView');
-var SellList= require('./Children/SellList');
+var SellList = require('./Children/SellList');
 
 class Main extends React.Component {
   render() {
     return (
       <Router>
         <div>
-          <nav className="navbar navbar-default">
-              <div className="container">
-                <div className="navbar-header">
-                  <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span className="sr-only">Toggle navigation</span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                      </button>
-                <Link to="/listings" className="navbar-brand" >Halvsies</Link>
-                </div>
-                <div id="navbar" className="navbar-collapse collapse">
+          <nav className="navbar navbar-blue">
+            <div className="container">
+              <div className="navbar-header navbar-header-white">
+                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span className="sr-only">Toggle navigation</span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                </button>
+                <Link to="/listings" className="navbar-brand">Halvsies</Link>
+              </div>
+              <div id="navbar" className="navbar-collapse collapse">
 
-                  <ul className="nav navbar-nav navbar-right">
-                  <li><Link to="/listings">List Groceries</Link></li>
-                  <li><Link to="/find">Find Available Halvsies</Link></li>
-                  </ul>
-
-                </div>
+                <ul className="nav navbar-nav navbar-right">
+                  <li>
+                    <Link to="/listings">List Groceries</Link>
+                  </li>
+                  <li>
+                    <Link to="/find">Find Available Halvsies</Link>
+                  </li>
+                </ul>
 
               </div>
 
-            </nav>
+            </div>
 
-
+          </nav>
 
           {/* <Route exact path="/" component={Home}/> */}
-
+          <div className="main">
           <Route exact path="/" component={SellView}/>
           <Route path="/find" component={SellList}/>
           <Route path="/listings" component={SellView}/>
+          </div>
+          <div id="footer">
+            <div className="container">
+              {/* <p className="footer-block">Made with &lt;&gt; and <span className="red">&hearts;</span>
+              </p> */}
+              <p className="footer-block">Made with <i className="glyphicon glyphicon-chevron-left"></i><i className="glyphicon glyphicon-chevron-right"></i> and &nbsp;<i className="glyphicon glyphicon-headphones"></i>
+              </p>
+            </div>
+          </div>
         </div>
       </Router>
     );
   }
 }
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
-
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-)
-
-const Topics = ({ match }) => (
-  <div>
-    <h2>Topics</h2>
-    <ul>
-      <li>
-        <Link to={`${match.url}/rendering`}>
-          Rendering with React
-        </Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/components`}>
-          Components
-        </Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/props-v-state`}>
-          Props v. State
-        </Link>
-      </li>
-    </ul>
-
-    <Route path={`${match.url}/:topicId`} component={Topic}/>
-    <Route exact path={match.url} render={() => (
-      <h3>Please select a topic.</h3>
-    )}/>
-  </div>
-)
-
-const Topic = ({ match }) => (
-  <div>
-    <h3>{match.params.topicId}</h3>
-  </div>
-)
 
 module.exports = Main;
