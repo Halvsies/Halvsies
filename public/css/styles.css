@@ -1,3 +1,37 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+html body {
+  margin-bottom: 60px;
+}
+
+html #footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  height: 60px;
+  background-color: #337ab7;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer-block {
+  font-size: 16px;
+}
+
+html #footer .footer-block {
+  margin: 20px 0;
+}
+
+@media screen and (max-width:700px) {
+  #footer {
+    display: none;
+  }
+}
+
 .panel-body-padding {
   padding: 20px 30px;
 }
@@ -10,4 +44,39 @@ td {
 
 th {
   text-align: center;
+}
+
+.navbar-blue {
+  background-color: #337ab7;
+  border-radius: 0;
+  padding: 10px 0;
+}
+
+.navbar-brand {
+  font-size: 30px !important;
+}
+
+.navbar a {
+  color: white;
+  font-size: 16px;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar li a:hover {
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  color: white;
+}
+
+.navbar li a:active, .navbar li a:focus {
+  background-color: transparent;
+  color: white;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.main {
+  margin-top: 40px;
 }
