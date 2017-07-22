@@ -14,7 +14,7 @@ class Login extends React.Component {
         <h2>Halvsies</h2>
         <p>noun</p>
 
-        <h4>1. an arrangment to split your groceries with another person</h4>
+        <h4>1. an arrangement to split your groceries with another person</h4>
 
         <div className="btn-center">
         <Link to="/listings" className="btn btn-success btn-login">Login</Link>
