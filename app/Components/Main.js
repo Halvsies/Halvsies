@@ -20,7 +20,8 @@ class Main extends React.Component {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <Link to="/listings" className="navbar-brand">Halvsies</Link>
+                <Link to="/listings" className="navbar-brand"><img src={'/images/SmallLogo.png'} className="logoImage" /></Link>
+
               </div>
               <div id="navbar" className="navbar-collapse collapse">
 
@@ -49,7 +50,7 @@ class Main extends React.Component {
             <div className="container">
               {/* <p className="footer-block">Made with &lt;&gt; and <span className="red">&hearts;</span>
               </p> */}
-              <p className="footer-block">Made with <i className="glyphicon glyphicon-chevron-left"></i><i className="glyphicon glyphicon-chevron-right"></i> and &nbsp;<i className="glyphicon glyphicon-headphones"></i>
+              <p className="footer-block"> Made with <i className="glyphicon glyphicon-chevron-left"></i><i className="glyphicon glyphicon-chevron-right"></i> and &nbsp;<i className="glyphicon glyphicon-headphones"></i>
               </p>
             </div>
           </div>

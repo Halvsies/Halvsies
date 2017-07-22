@@ -26,6 +26,16 @@ html #footer .footer-block {
   margin: 20px 0;
 }
 
+img {
+  height: 30px;
+  padding-bottom: 10px;
+}
+
+.logoImage {
+  height: 32px;
+  padding:0px;
+}
+
 @media screen and (max-width:700px) {
   #footer {
     display: none;
@@ -53,7 +63,7 @@ th {
 }
 
 .navbar-brand {
-  font-size: 30px !important;
+  
 }
 
 .navbar a {
