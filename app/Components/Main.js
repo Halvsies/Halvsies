@@ -1,10 +1,11 @@
 var React = require('react');
 var axios = require('axios');
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 var helpers = require('./utils/helpers');
 var SellView = require('./Children/SellView');
 var SellList = require('./Children/SellList');
+var Login = require('./Children/Login');
 
 class Main extends React.Component {
   render() {
@@ -41,7 +42,7 @@ class Main extends React.Component {
 
           {/* <Route exact path="/" component={Home}/> */}
           <div className="main">
-          <Route exact path="/" component={SellView}/>
+          <Route exact path="/" component={Login}/>
           <Route path="/find" component={SellList}/>
           <Route path="/listings" component={SellView}/>
           </div>
