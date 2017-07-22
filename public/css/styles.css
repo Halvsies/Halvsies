@@ -33,7 +33,7 @@ img {
 
 .logoImage {
   height: 32px;
-  padding:0px;
+  padding-bottom: 2px;
 }
 
 @media screen and (max-width:700px) {
@@ -63,7 +63,8 @@ th {
 }
 
 .navbar-brand {
-  
+  padding-top: 11px;
+  padding-left: 15px;
 }
 
 .navbar a {
