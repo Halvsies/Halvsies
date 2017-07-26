@@ -70,10 +70,8 @@ class AddForm extends React.Component {
       });
     }
 
-
-
-
   }
 }
 
-module.exports = AddForm;
+
+export default AddForm;

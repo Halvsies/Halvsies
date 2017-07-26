@@ -1,10 +1,10 @@
 import React from "react";
 import axios from "axios";
-import Cart from "./Cart";
-import Results from "./Results";
+import Cart from "../Cart/Cart";
+import Results from "../Results/Results";
 
 /* ===== parent component ===== */
-class SellList extends React.Component {
+class BuyView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -50,7 +50,7 @@ class SellList extends React.Component {
   reserveItem(id) {
 
     axios.post("/reserve/" + id).then(response => {
-    
+
       axios.get("/api/available").then(response => {
 
         this.setState({items: response.data});
@@ -106,4 +106,4 @@ class SellList extends React.Component {
   }
 }
 
-module.exports = SellList;
+export default BuyView;

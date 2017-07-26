@@ -2,17 +2,17 @@ import React from "react";
 import axios from "axios";
 
 /* ===== items list ===== */
-class Items extends React.Component {
+class Results extends React.Component {
   constructor(props) {
     super(props);
-    this.handleRemove = this.handleRemove.bind(this);
+      this.handleReserve = this.handleReserve.bind(this);
 
   }
   render() {
     // grab items array from state, map each item in `li`
     let items = this.props.items.map((item, key) => {
 
-      return <tr key={key}>
+      return <tr key={key} >
         <td>{item.item}
         </td>
         <td>{item.bulk_qty}
@@ -21,10 +21,8 @@ class Items extends React.Component {
         </td>
         <td>{item.buy_date}
         </td>
-        <td>{item.reserved}
-        </td>
-        <td>
-          <button onClick={this.handleRemove} id={item._id} type="button" className="btn btn-danger">Delete</button>
+
+        <td><button onClick={this.handleReserve} id={item._id} type="button" className="btn btn-success">Reserve</button>
         </td>
       </tr>
     });
@@ -36,20 +34,19 @@ class Items extends React.Component {
             <th>Buy Quantity</th>
             <th>Halvsies</th>
             <th>Buy Date</th>
-            <th>Reserved</th>
           </tr>
         </thead>
         <tbody>
-          {items}
-        </tbody>
+        {items}
+      </tbody>
       </table>
     )
   }
-  handleRemove(item) {
-  
-    this.props.removeItem(item.currentTarget.getAttribute('id'));
+  handleReserve(item) {
+
+    this.props.reserveItem(item.currentTarget.getAttribute('id'));
 
   }
 }
 
-module.exports = Items;
+export default Results;

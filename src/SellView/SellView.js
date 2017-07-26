@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import AddForm from "./AddForm";
-import Items from "./Items";
+import AddForm from "../AddForm/AddForm";
+import Items from "../Items/Items";
 
 /* ===== parent component ===== */
 class SellView extends React.Component {
@@ -53,7 +53,7 @@ class SellView extends React.Component {
   removeItem(id) {
     // remove item then get the latest state
     axios.delete("/api/mylist/" + id).then(response => {
-    
+
       axios.get("/api/mylist").then(response => {
 
         this.setState({items: response.data});

@@ -1,16 +1,13 @@
-var React = require('react');
-var axios = require('axios');
+import React from 'react';
+import axios from 'axios';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-
-var helpers = require('./utils/helpers');
-var SellView = require('./Children/SellView');
-var SellList = require('./Children/SellList');
-var Login = require('./Children/Login');
+import SellView from './SellView/SellView';
+import BuyView from './BuyView/BuyView';
 
 class Main extends React.Component {
   render() {
     return (
-      <Router>
+
         <div>
           <nav className="navbar navbar-blue">
             <div className="container">
@@ -21,16 +18,16 @@ class Main extends React.Component {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <Link to="/listings" className="navbar-brand">Halvsies</Link>
+                <Link to="/SellView" className="navbar-brand">Halvsies</Link>
               </div>
               <div id="navbar" className="navbar-collapse collapse">
 
                 <ul className="nav navbar-nav navbar-right">
                   <li>
-                    <Link to="/listings">List Groceries</Link>
+                    <Link to="/SellView">List Groceries</Link>
                   </li>
                   <li>
-                    <Link to="/find">Find Available Halvsies</Link>
+                    <Link to="/BuyView">Find Available Halvsies</Link>
                   </li>
                 </ul>
 
@@ -40,24 +37,15 @@ class Main extends React.Component {
 
           </nav>
 
-          {/* <Route exact path="/" component={Home}/> */}
-          <div className="main">
-          <Route exact path="/" component={Login}/>
-          <Route path="/find" component={SellList}/>
-          <Route path="/listings" component={SellView}/>
-          </div>
           <div id="footer">
             <div className="container">
-              {/* <p className="footer-block">Made with &lt;&gt; and <span className="red">&hearts;</span>
-              </p> */}
               <p className="footer-block">Made with <i className="glyphicon glyphicon-chevron-left"></i><i className="glyphicon glyphicon-chevron-right"></i> and &nbsp;<i className="glyphicon glyphicon-headphones"></i>
               </p>
             </div>
           </div>
         </div>
-      </Router>
     );
   }
 }
 
-module.exports = Main;
+export default Main;

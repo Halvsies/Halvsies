@@ -40,9 +40,9 @@ class Cart extends React.Component {
     )
   }
   handleUnreserve(item) {
-    
+
     this.props.unreserveItem(item.currentTarget.getAttribute('id'));
   }
 }
 
-module.exports = Cart;
+export default Cart;
